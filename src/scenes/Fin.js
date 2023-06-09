@@ -19,36 +19,58 @@ export default class Fin extends Phaser.Scene {
   preload() {
 
     this.load.image("botonReplay", "./public/images/replay.png");
-    this.load.image("fondo", "./public/images/sky.png");
+    this.load.image("cielo", "./public/images/fondo.png");
+    this.load.image("volver", "./public/images/volver.png");
 }
 
   create() {
 
-    this.add.image(400, 300, "fondo");
+    this.add.image(400, 300, "cielo").setScale(0.55);
 
-        this.winnerText1 = this.add.text(140,255 , "¡Felicitaciones!", {
+    const botonVolver = this.add.image(330, 355, "volver").setInteractive().setScale(1);
+
+    const botonReplay = this.add.image(450, 355, "botonReplay").setInteractive().setScale(1);
+
+        this.winnerText1 = this.add.text(140,165 , "¡Felicitaciones!", {
             fontSize: "56px",
             fill: "#E6DE35",
             fontStyle: "bold",
             
         });
 
-        this.winnerText2 = this.add.text(290,350 , "", {
-            fontSize: "60px",
-            fill: "#fff",
-        });
 
         this.cantidadEstrellasTexto = this.add.text(
-          160,
-          350,
+          180,
+          250,
           "Estrellas recolectadas: " + this.cantidadEstrellas,
           { fontSize: "25px", fill: "#FFFFFF" }
         );
 
-        this.playAgainText = this.add.text(280,430 , "<SPACE> jugar de nuevo", {
-            fontSize: "20px",
-            fill: "#fff",
-        });
+      botonReplay.on("pointerover", () => {
+          this.game.canvas.style.cursor = "pointer"
+      });
+    
+      botonReplay.on("pointerout", () => {
+          this.game.canvas.style.cursor = "default";
+      });
+      
+      botonReplay.on("pointerdown", () => {
+          this.game.canvas.style.cursor = "default";
+          this.scene.start("nivel1");
+      });
+
+      botonVolver.on("pointerover", () => {
+        this.game.canvas.style.cursor = "pointer"
+    });
+  
+    botonVolver.on("pointerout", () => {
+        this.game.canvas.style.cursor = "default";
+    });
+    
+    botonVolver.on("pointerdown", () => {
+        this.game.canvas.style.cursor = "default";
+        this.scene.start("menuprincipal");
+    });
 
   }
 }

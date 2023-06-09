@@ -1,4 +1,4 @@
-export default class Menuprincipal extends Phaser.Scene {
+export default class Menuprincipal extends Phaser.Scene {  //terminar escena
   constructor() {
     super("menuprincipal");
   }
@@ -6,15 +6,22 @@ export default class Menuprincipal extends Phaser.Scene {
   preload() {
 
       this.load.image("botonPlay", "./public/images/play.png");
-      this.load.image("cielo", "./public/images/sky.png");
+      this.load.image("cielo", "./public/images/fondo.png");
+      this.load.image("botonHelp", "./public/images/help.png");
+      //agregar foto ayuda
   }
 
   create() {
 
-    this.add.image(400, 300, "cielo");
-    const botonPlay = this.add.image(400, 400, "botonPlay").setInteractive().setScale(1.5);
+    this.add.image(400, 300, "cielo").setScale(0.55);
 
-    const botonHelp = this.add.image(400, 600, "botonPlay").setInteractive().setScale(1.5);
+    
+
+ 
+
+    const botonPlay = this.add.image(400, 400, "botonPlay").setInteractive().setScale(1.3);
+
+    const botonHelp = this.add.image(750, 50, "botonHelp").setInteractive(); 
 
   
     botonPlay.on("pointerover", () => {
@@ -31,7 +38,7 @@ export default class Menuprincipal extends Phaser.Scene {
   });
 
 
-  
+
   botonHelp.on("pointerover", () => {
     this.game.canvas.style.cursor = "pointer"
 });

@@ -49,6 +49,6 @@ export default class Precarga extends Phaser.Scene {
     });
 
     // init scene juego
-    this.scene.start("menuprincipal");
+    this.scene.start("fin");
   }
 }
