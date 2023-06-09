@@ -8,16 +8,13 @@ export default class Menuprincipal extends Phaser.Scene {  //terminar escena
       this.load.image("botonPlay", "./public/images/play.png");
       this.load.image("cielo", "./public/images/fondo.png");
       this.load.image("botonHelp", "./public/images/help.png");
-      //agregar foto ayuda
+
   }
 
   create() {
 
     this.add.image(400, 300, "cielo").setScale(0.55);
 
-    
-
- 
 
     const botonPlay = this.add.image(400, 400, "botonPlay").setInteractive().setScale(1.3);
 
