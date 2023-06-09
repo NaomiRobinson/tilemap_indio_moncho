@@ -16,12 +16,39 @@ export default class Fin extends Phaser.Scene {
     this.cantidadEstrellas = data.cantidadEstrellas;
   }
 
+  preload() {
+
+    this.load.image("botonReplay", "./public/images/replay.png");
+    this.load.image("fondo", "./public/images/sky.png");
+}
+
   create() {
-    this.cantidadEstrellasTexto = this.add.text(
-      15,
-      15,
-      "Estrellas recolectadas: " + this.cantidadEstrellas,
-      { fontSize: "15px", fill: "#FFFFFF" }
-    );
+
+    this.add.image(400, 300, "fondo");
+
+        this.winnerText1 = this.add.text(140,255 , "¡Felicitaciones!", {
+            fontSize: "56px",
+            fill: "#E6DE35",
+            fontStyle: "bold",
+            
+        });
+
+        this.winnerText2 = this.add.text(290,350 , "", {
+            fontSize: "60px",
+            fill: "#fff",
+        });
+
+        this.cantidadEstrellasTexto = this.add.text(
+          160,
+          350,
+          "Estrellas recolectadas: " + this.cantidadEstrellas,
+          { fontSize: "25px", fill: "#FFFFFF" }
+        );
+
+        this.playAgainText = this.add.text(280,430 , "<SPACE> jugar de nuevo", {
+            fontSize: "20px",
+            fill: "#fff",
+        });
+
   }
 }
